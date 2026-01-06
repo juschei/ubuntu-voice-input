@@ -2,12 +2,17 @@
 
 Push-to-talk voice transcription for Ubuntu and PulseAudio. Records audio, transcribes with Whisper, copies to clipboard.
 
+![Demo](demo.gif)
+
 ## Requirements
 
-- Python 3.10+
-- PulseAudio
-- `wl-copy` (wl-clipboard)
-- `notify-send` (libnotify)
+```bash
+# Wayland
+sudo apt install wl-clipboard libnotify-bin
+
+# X11
+sudo apt install xclip libnotify-bin
+```
 
 ## Setup
 
