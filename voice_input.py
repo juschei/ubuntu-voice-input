@@ -36,6 +36,23 @@ def notify(message, urgency="normal"):
     )
 
 
+def copy_to_clipboard(text):
+    if os.environ.get("WAYLAND_DISPLAY"):
+        subprocess.run(
+            ["wl-copy", text],
+            stdin=subprocess.DEVNULL,
+            stdout=subprocess.DEVNULL,
+            stderr=subprocess.DEVNULL,
+        )
+    else:
+        subprocess.run(
+            ["xclip", "-selection", "clipboard"],
+            input=text.encode(),
+            stdout=subprocess.DEVNULL,
+            stderr=subprocess.DEVNULL,
+        )
+
+
 def do_record():
     PID_FILE.write_text(str(os.getpid()))
     audio_chunks = []
@@ -91,12 +108,7 @@ def transcribe():
         AUDIO_FILE.unlink(missing_ok=True)
 
         if text:
-            subprocess.run(
-                ["wl-copy", text],
-                stdin=subprocess.DEVNULL,
-                stdout=subprocess.DEVNULL,
-                stderr=subprocess.DEVNULL,
-            )
+            copy_to_clipboard(text)
             notify(f"✓ {text[:50]}{'...' if len(text) > 50 else ''}")
             log(f"Transcribed: {text}")
         else:
