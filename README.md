@@ -1,6 +1,6 @@
 # Local Voice Input
 
-Push-to-talk voice transcription for Linux/Wayland and PulseAudio. Records audio, transcribes with Whisper, copies to clipboard.
+Push-to-talk voice transcription for Ubuntu and PulseAudio. Records audio, transcribes with Whisper, copies to clipboard.
 
 ## Requirements
 

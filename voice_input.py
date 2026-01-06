@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-"""Push-to-talk voice transcription for Linux/Wayland."""
+"""Push-to-talk voice transcription for Ubuntu."""
 
 import subprocess
 import sys
