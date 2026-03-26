@@ -7,11 +7,14 @@ Push-to-talk voice transcription for Ubuntu and PulseAudio. Records audio, trans
 ## Requirements
 
 ```bash
+
+sudo apt install libnotify-bin libportaudio2 pulseaudio
+
 # Wayland
-sudo apt install wl-clipboard libnotify-bin
+sudo apt install wl-clipboard
 
 # X11
-sudo apt install xclip libnotify-bin
+sudo apt install xclip
 ```
 
 ## Setup
